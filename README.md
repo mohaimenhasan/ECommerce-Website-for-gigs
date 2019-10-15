@@ -7,4 +7,4 @@ Semester project on Ruby-on-Rails for ECE444 - Software Engineering
 
 <b> Ruby: </b> 2.6.4 <br/>
 <b> Rails: </b> 6.0.0 <br/>
-<b> Sqlite3: </b>  <br/>
+<b> Sqlite3: </b> 3.30.1 <br/>
