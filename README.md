@@ -5,7 +5,6 @@ Semester project on Ruby-on-Rails for ECE444 - Software Engineering
 
 * Version for Ruby-on-Rails:
 
-<b> Ruby: </b> 2.6.4 
-<b> Rails: </b> 6.0.0
-<b> Sqlite3: </b>  
-
+<b> Ruby: </b> 2.6.4 <br/>
+<b> Rails: </b> 6.0.0 <br/>
+<b> Sqlite3: </b>  <br/>
