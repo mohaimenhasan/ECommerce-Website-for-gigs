@@ -88,6 +88,4 @@ test:
 #
 production:
   <<: *default
-  database: homegig_production
-  username: homegig
-  password: <%= ENV['HOMEGIG_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
