@@ -90,5 +90,4 @@ production:
   <<: *default
   database: homegig_production
   username: homegig
-  #password: <%= ENV['HOMEGIG_DATABASE_PASSWORD'] %>
-  password: hello123
+  password: <%= ENV['HOMEGIG_DATABASE_PASSWORD'] %>
