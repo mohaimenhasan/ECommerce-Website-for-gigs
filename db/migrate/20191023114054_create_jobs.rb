@@ -3,7 +3,7 @@ class CreateJobs < ActiveRecord::Migration[6.0]
     create_table :jobs do |t|
       t.belongs_to :user
       t.string :name
-      t.string :subcategory
+      t.belongs_to :subcategory
       t.float :cost
       t.text :description
       t.timestamps
