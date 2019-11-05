@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <h1>Welcome !</h1>
-  <p><%= @user %></p>
+  <h1>Welcome <%= @user %> !</h1>
   <body>
     <% if user_signed_in? %>
     <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      <%= link_to('My Account', edit_user_registration_path) %>
     </li>
     <li>
-      <%= link_to('Edit registration', edit_user_registration_path) %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     </li>
     <% else %>
     <li>
