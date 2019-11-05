@@ -9,10 +9,16 @@
     <li>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     </li>
+    <% if current_user.admin == true %>
+      <li>
+        <%= link_to('Admin Dashboard', rails_admin_path) %>
+      </li> 
+    <% end %> 
     <% else %>
     <li>
       <%= link_to('Login', new_user_session_path) %>
     </li>
     <% end %>
+
   </body>
 </html>
