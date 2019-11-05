@@ -31,6 +31,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :credit_card %> <br/>
+    <%= f.text_field :payment_card, autofocus: true %>
+  </div>
+  <br/>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

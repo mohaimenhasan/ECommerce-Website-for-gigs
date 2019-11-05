@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2019_10_29_152209) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
+  create_table "ongoing_tasks", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.string "status"
+    t.float "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_ongoing_tasks_on_job_id"
+    t.index ["user_id"], name: "index_ongoing_tasks_on_user_id"
+  end
+
   create_table "subcategories", force: :cascade do |t|
     t.bigint "category_id"
     t.string "name"
@@ -52,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_152209) do
     t.string "fname"
     t.string "lname"
     t.boolean "admin", default: false
+    t.string "payment_card"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
