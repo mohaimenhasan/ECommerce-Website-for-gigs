@@ -4,26 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
       <li><a class="active">Home</a></li>
-      <li><a>Shop</a></li>
+      <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
-      <div class="dropdown">
+      <li class="dropdown">
         <button class="dropbtn"><%= @user %>
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
           <br/>
-          <a><%= link_to('My Account', edit_user_registration_path) %></a> <br/>
-          <a href="#"> My Orders </a> <br/>
-          <a href="#"> My Wallet </a> <br/>
-          <a><%= link_to('Log Out', destroy_user_session_path, method: :delete) %></a> <br/>
+          <a><%= link_to('My Account', edit_user_registration_path) %></a>
+          <a href="#"> My Orders </a>
+          <a href="#"> My Wallet </a>
+          <a><%= link_to('Log Out', destroy_user_session_path, method: :delete) %></a>
         </div>
-      </div>
+      </li>
     </ul>
   <% else %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
       <li><a class="active">Home</a></li>
-      <li><a>Shop</a></li>
+      <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
       <li class="right"><a href="/users/sign_in">Log in</a></li>
     </ul>
