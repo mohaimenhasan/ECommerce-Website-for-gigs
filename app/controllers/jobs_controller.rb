@@ -4,4 +4,8 @@ class JobsController < ApplicationController
   def index
     @user = current_user.fname
   end
+
+  def new
+    @user = current_user
+  end
 end
