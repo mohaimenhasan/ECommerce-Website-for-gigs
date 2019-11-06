@@ -23,6 +23,9 @@ gem 'devise'
 gem 'bootstrap', '~> 4.3.1'
 # Rails_Admin for admin user of the app
 gem 'rails_admin'
+# Jquery
+gem 'jquery-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
