@@ -1,21 +1,28 @@
 <div class="newjob">
+  <br/>
   <h2>Create a job</h2>
-  <%= form_for :jobs do |f| %>
+  <%= form_for :job, :url => user_jobs_path(@user, @job) do |f| %>
     <div class="field">
       <b><%= f.label :name %><br /> </b>
       <%= f.text_field :name %>
     </div>
     <div class="field">
-      <b><%= f.label :subcategory %><br /> </b>
-      <%= f.select :subcategory, Subcategory.pluck(:name, :category_id)%>
+      <b><%= f.label :subcategory_id %><br /> </b>
+      <%= f.select :subcategory_id, Subcategory.pluck(:name, :category_id)%>
     </div>
+    <br/>
     <div class="field">
       <b><%= f.label :cost %><br /> </b>
       <%= f.number_field :cost, min:1 %>
     </div>
+    <br/>
     <div class="description">
       <b><%= f.label :description %><br /> </b>
-      <%= f.text_field :description %>
+      <%= f.text_area :description %>
+    </div>
+    <br/>
+    <div class="actions">
+      <b> <%= f.submit "Create" %> </b>
     </div>
   <% end %>
 </div>
