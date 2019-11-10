@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_135300) do
+ActiveRecord::Schema.define(version: 2019_11_04_123930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2019_11_07_135300) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.string "subcategory_id"
+    t.bigint "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -61,8 +62,8 @@ ActiveRecord::Schema.define(version: 2019_11_07_135300) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "fname"
     t.string "lname"
-    t.string "payment_card"
     t.boolean "admin", default: false
+    t.string "payment_card"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
