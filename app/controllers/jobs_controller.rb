@@ -22,7 +22,7 @@ class JobsController < ApplicationController
     @job.user_id = @user
     @job.subcategory_id = @subcategory
     if @job.save
-      redirect_to user_jobs_path
+      redirect_to users_path
     else
       render :new
     end
