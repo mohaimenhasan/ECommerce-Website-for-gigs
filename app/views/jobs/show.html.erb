@@ -1,0 +1,24 @@
+<h2><%= @job.name %> !</h2>
+<p>
+  <strong>Category:</strong>
+  <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= Subcategory.find(@job.subcategory_id).name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @job.cost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job.description %>
+</p>
+
+<p>
+  <%= link_to 'Back', users_path %>
+</p>
