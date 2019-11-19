@@ -7,6 +7,7 @@
         <th>Card Number</th>
         <th>Owner</th>
         <th>Expire Date</th>
+        <th>Edit</th>
       </tr>
 
       <% @wallets.each do |card| %>
@@ -14,6 +15,7 @@
           <td><%= card.cardnumber %></td>
           <td><%= card.cardowner %></td>
           <td><%= card.expiredate %></td>
+          <td><%= link_to('Edit', edit_user_wallet_path(@user, card)) %>
         </tr>
       <% end %>
     </table>
