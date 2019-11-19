@@ -3,7 +3,7 @@
   <% if user_signed_in? %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
-      <li><a class="active">Home</a></li>
+      <li><a class="active" href="/home">Home</a></li>
       <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
       <li><%= form_tag(search_page_path, :method => "get") do %>
@@ -25,12 +25,12 @@
             <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
         </div>
       </li>
-      <li class="right"><a>About</a></li>
+      <li class="right"><a href="/users">About</a></li>
     </ul>
   <% else %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
-      <li><a class="active">Home</a></li>
+      <li><a class="active" href="/home">Home</a></li>
       <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
       <li class="right"><a>About</a></li>
@@ -43,6 +43,7 @@
       </div>
       <% end %></li>
       <li class="right"><a href="/users/sign_in">Log in</a></li>
+      <li class="right"><a href="/users">About</a></li>
     </ul>
   <% end %>
   
