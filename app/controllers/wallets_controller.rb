@@ -10,6 +10,19 @@ class WalletsController < ApplicationController
     @wallet = @user.wallets.new
   end
 
+  def edit
+    @wallet = Wallet.find(params[:id])
+  end
+
+  def update
+    @wallet = Wallet.find(params[:id])
+    if @wallet.update(wallet_params)
+      redirect_to user_wallets_path
+    else
+      render 'edit'
+    end
+  end
+
   def create
     @wallet = Wallet.new(wallet_param)
     @user = params[:user_id]

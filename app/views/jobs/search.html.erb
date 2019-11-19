@@ -1,0 +1,26 @@
+<h3>Search Result</h3>  
+<form>
+  <input type="button" value="Go back" onclick="history.back()">
+</form>
+<h4>Jobs</h4>
+    <table id="jobs">
+      <tr>
+        <th>Job Name</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Cost</th>
+        <th>Description</th>
+      </tr>
+    <% @results.each do |result| %>   
+        <tr>
+          <td><%= result.name %></td>
+          <td><%= Category.find(Subcategory.find(result.subcategory_id).category_id).name %></td>
+          <td><%= Subcategory.find(result.subcategory_id).name %></td>
+          <td><%= result.cost %></td>
+          <td><%= result.description %></td>
+        </tr>
+    <% end %>
+
+
+
+    
