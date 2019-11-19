@@ -26,7 +26,7 @@
           <td><%= Subcategory.find(job.subcategory_id).name %></td>
           <td><%= job.cost %></td>
           <td><%= job.description %></td>
-          <td><%= link_to 'Details', user_job_path(job, current_user) %></td>
+          <td><%= link_to 'Details', user_job_path(current_user, job) %></td>
         </tr>
       <% end %>
     </table>

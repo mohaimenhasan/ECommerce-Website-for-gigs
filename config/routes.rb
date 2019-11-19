@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :jobs
     resources :wallets
   end
+
+  get '/search' => 'jobs#search', :as => 'search_page'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

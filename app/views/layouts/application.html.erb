@@ -6,6 +6,14 @@
       <li><a class="active">Home</a></li>
       <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
+      <li><%= form_tag(search_page_path, :method => "get") do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
+        <div class = "input-group-btn">
+          <%= button_tag "Search", :class => 'btn btn-info glyphicon glphicon-search', :name => nil %>
+        </div>
+      </div>
+      <% end %></li>
       <li class="dropdown">
         <button class="dropbtn"><%= current_user.fname %>
           <i class="fa fa-caret-down"></i>
@@ -24,9 +32,18 @@
       <li><a class="active">Home</a></li>
       <li><a>Jobs</a></li>
       <li><a>Manage Store</a></li>
+      <li><%= form_tag(search_page_path, :method => "get") do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
+        <div class = "input-group-btn">
+          <%= button_tag "Search", :class => 'btn btn-info glyphicon glphicon-search', :name => nil %>
+        </div>
+      </div>
+      <% end %></li>
       <li class="right"><a href="/users/sign_in">Log in</a></li>
     </ul>
   <% end %>
+  
   <head>
     <title>Homegig</title>
     <%= csrf_meta_tags %>
