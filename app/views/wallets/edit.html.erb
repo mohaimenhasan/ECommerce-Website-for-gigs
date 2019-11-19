@@ -1,0 +1,22 @@
+<h4>Edit Card: <%= @wallet.cardnumber %></h4>
+<%= form_for :wallet, :url => user_wallets_path(@user, @wallet)  do |f| %>
+  <div class="field">
+    <b><%= f.label :Name_on_Card %><br /> </b>
+  </div>
+  <%= f.text_field :cardowner, autofocus: true %>
+  <div class="field">
+    <b><%= f.label :Card_Number %><br /> </b>
+    <%= f.text_field :cardnumber, autofocus: true %>
+  </div>
+  <br/>
+  <div class="field">
+    <b><%= f.label :Expire_Date %><br /> </b>
+    <%= f.date_field :expiredate, autofocus: true %>
+  </div>
+  <br/>
+  <div class="actions">
+    <b> <%= f.submit "Update" %> </b>
+  </div>
+<% end %>
+
+<%= link_to 'Back', user_wallets_path %>
