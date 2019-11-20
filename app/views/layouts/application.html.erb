@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
       <li><a class="active" href="/home">Home</a></li>
-      <li><a class="active" href="/jobs">Jobs</a></li>
-      <li><a class="active" href="/users">Manage Store</a></li>
+      <li><a href="/jobs">Jobs</a></li>
+      <li><a href="/users">Manage Store</a></li>
       <li><%= form_tag(search_page_path, :method => "get") do %>
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
@@ -20,8 +20,8 @@
         </button>
         <div class="dropdown-content">
             <%= link_to('My Account', edit_user_registration_path) %>
-            <%= link_to('Create New', new_user_job_path(@user)) %>
-            <%= link_to('My Wallet', user_wallets_path(@user)) %>
+            <%= link_to('Create New', new_user_job_path(current_user)) %>
+            <%= link_to('My Wallet', user_wallets_path(current_user)) %>
             <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
         </div>
       </li>
@@ -31,8 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
       <li><a class="active" href="/home">Home</a></li>
-      <li><a>Jobs</a></li>
-      <li><a>Manage Store</a></li>
+      <li><a href="/jobs">Jobs</a></li>
       <li><%= form_tag(search_page_path, :method => "get") do %>
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>

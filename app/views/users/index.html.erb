@@ -1,32 +1,38 @@
 <% if user_signed_in? %>
-  <h2>Welcome <%= @user %> !</h2>
+  <h4>Welcome <%= @user.fname %> !</h4>
   <% if current_user.admin == true %>
     <p>
       Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
     </p>
   <% end %>
-  <h4>All Current Jobs</h4>
-  <table id="jobs">
-    <tr>
-      <th>Job Name</th>
-      <th>Category</th>
-      <th>Subcategory</th>
-      <th>Cost</th>
-      <th>Description</th>
-      <th>Details</th>
-    </tr>
-
-    <% @jobs.each do |job| %>
+  <p>
+    The following jobs exist for the Current User:
+    <table id="jobs">
       <tr>
-        <td><%= job.name %></td>
-        <td><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></td>
-        <td><%= Subcategory.find(job.subcategory_id).name %></td>
-        <td><%= job.cost %></td>
-        <td><%= job.description %></td>
-        <td><%= link_to 'Details', user_job_path(current_user, job) %></td>
+        <th>Job Name</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Cost</th>
+        <th>Description</th>
+        <th>Details</th>
       </tr>
-    <% end %>
-  </table>
+
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.name %></td>
+          <td><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></td>
+          <td><%= Subcategory.find(job.subcategory_id).name %></td>
+          <td><%= job.cost %></td>
+          <td><%= job.description %></td>
+          <td><%= link_to 'Details', user_job_path(current_user, job) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="wallet">
+      <br/>
+      <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
+    </div>
+  </p>
 <% else %>
   <li>
     <%= link_to('Login', new_user_session_path) %>

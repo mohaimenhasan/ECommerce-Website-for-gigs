@@ -1,10 +1,8 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_user
 
   def index
-    @user = current_user.fname
-    @jobs = Job.where(:user_id => current_user.id)
+    @jobs = Job.all
   end
 
   def show
@@ -17,7 +15,6 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
-  
     if @job.update(jobs_param)
       redirect_to users_path
     else

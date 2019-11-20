@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'home', :to => 'home#index'
   get 'jobs', :to => 'jobs#index'
   get 'manage store', :to => 'users#index'
+  get 'job/:id', :to => 'jobs#show', :as => 'job_detail'
 end

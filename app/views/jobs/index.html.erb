@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <h4>All Current Jobs</h4>
-    <table id="jobs">
-      <tr>
-        <th>Job Name</th>
-        <th>Category</th>
-        <th>Subcategory</th>
-        <th>Cost</th>
-        <th>Description</th>
-      </tr>
+<table id="jobs">
+  <tr>
+    <th>Job Name</th>
+    <th>Category</th>
+    <th>Subcategory</th>
+    <th>Cost</th>
+    <th>Description</th>
+    <th>Details</th>
+    <th>Posted By</th>
+  </tr>
 
-      <% @jobs.each do |job| %>
-        <tr>
-          <td><%= job.name %></td>
-          <td><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></td>
-          <td><%= Subcategory.find(job.subcategory_id).name %></td>
-          <td><%= job.cost %></td>
-          <td><%= job.description %></td>
-        </tr>
-        <% end %>
-    </table>
-
-  </body>
-</html>
+  <% @jobs.each do |job| %>
+    <tr>
+      <td><%= job.name %></td>
+      <td><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></td>
+      <td><%= Subcategory.find(job.subcategory_id).name %></td>
+      <td><%= job.cost %></td>
+      <td><%= job.description %></td>
+      <td><%= link_to 'Details', job_detail_path(job) %></td>
+      <td><%= User.find(job.user_id).fname %></td>
+    </tr>
+  <% end %>
+</table>
