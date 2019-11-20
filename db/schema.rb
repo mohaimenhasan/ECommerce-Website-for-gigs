@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2019_11_17_164917) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.string "subcategory_id"
+    t.bigint "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
