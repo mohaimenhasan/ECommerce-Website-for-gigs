@@ -38,6 +38,16 @@ class JobsController < ApplicationController
     end
   end
 
+  def search
+    @user = current_user
+    if params[:search].blank?
+      redirect_to(root_path, alert: "Empty field!") and return
+    else
+      @parameter = params[:search].downcase
+      @results = Job.all.where("lower(jobs.name) LIKE :search ", search: "%#{@parameter}%")
+    end
+  end
+
   private
     def jobs_param
       params.require(:job).permit(:name, :cost, :description, :subcategory_id)

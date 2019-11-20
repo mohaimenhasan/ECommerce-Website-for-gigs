@@ -15,6 +15,10 @@
 
  body {margin: 0;}
 
+ .wallet {
+   text-align: center;
+ }
+
  ul.topnav {
    list-style-type: none;
    margin: 0;
@@ -45,6 +49,38 @@
  .newjob{
    align-items: center;
  }
+
+ .newcard {
+    align-items: center;
+  }
+
+.newcard{
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.newcard input, select{
+  width: 100%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.newcard input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.newcard input[type=submit]:hover {
+  background-color: #45a049;
+}
 
  .description input{
    height: 10em;
@@ -116,6 +152,10 @@
   cursor: pointer;
 }
 
+.input-group {
+  padding: 8px; 
+}
+
 .newjob input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -126,6 +166,36 @@
 
  ul.topnav li.right {float: right;}
 
+.edit_user{
+  align-items: center;
+}
+
+.edit_user{
+  margin-left: 10%;
+}
+
+.edit_user input, select{
+  width: 50%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit_user input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit_user input[type=submit]:hover {
+  background-color: #45a049;
+}
 
  #jobs {
    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -147,6 +217,29 @@
    padding-bottom: 12px;
    text-align: left;
    background-color: #4CAF50;
+   color: white;
+ }
+
+ #wallets {
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+   border-collapse: collapse;
+   width: 100%;
+ }
+
+ #wallets td, #wallets th {
+   border: 1px solid #ddd;
+   padding: 8px;
+ }
+
+ #wallets tr:nth-child(even){background-color: #f2f2f2;}
+
+ #wallets tr:hover {background-color: #ddd;}
+
+ #wallets th {
+   padding-top: 12px;
+   padding-bottom: 12px;
+   text-align: left;
+   background-color: #fcba03;
    color: white;
  }
 

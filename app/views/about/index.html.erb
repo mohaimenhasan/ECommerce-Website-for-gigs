@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  font-family: arial;
+  text-align: center;
+}
+
+p {
+  font-family: arial;
+  font-size: 30px;
+  text-align: center;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 270px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 20px;
+  font-family: arial;
+  text-align: center;
+  font-size: 30px;
+}
+
+div.desc2 {
+  padding: 20px;
+  font-family: arial;
+  text-align: center;
+  font-size: 20px;
+}
+
+div.gap {
+    width:100%;
+    height:30px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>About Us - A Business Community</h1>
+
+<p>Serve the crowd</p>
+<div class="gallery">
+    <%= image_tag("payment.jpg", :alt => "securedpayment", style: "height: 100%; width: 100%") %>
+  <div class="desc">Fund Custody Payment</div>
+  <div class="desc2">Payment is only released to provider if you’re 100% happy about the job.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("fee.jpg", :alt => "fee", style: "height: 100%; width: 100%") %>
+    <div class="desc">Tailored Demand & Clear Fees</div>
+    <div class="desc2">Fully customized to your need and No hidden fee or whatsoever.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("time.jpg", :alt => "realtime", style: "height: 100%; width: 100%") %>
+    <div class="desc">Real Time Update</div>
+    <div class="desc2">24/7 job status checking available through our realtime database.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("guard.jpg", :alt => "safe", style: "height: 100%; width: 100%") %>
+    <div class="desc">Quality Provider Only</div>
+    <div class="desc2">We remove suspicious postings at once identified by our admins.</div>
+</div>
+
+<p>&nbsp;</p>
+<p>OR</p>
+<p>Use your telent, here is how</p>
+<div class="gallery">
+    <%= image_tag("coffee.jpeg", :alt => "1", style: "height: 100%; width: 100%") %>
+    <div class="desc">No Hassle</div>
+    <div class="desc2">Earn moeny over your coffee time, it is that easy today.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("chill.jpg", :alt => "2", style: "height: 100%; width: 100%") %>
+    <div class="desc">Create A Gig</div>
+    <div class="desc2">Sign up for free, set up your Gig, and offer your work.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("deliver.jpg", :alt => "3", style: "height: 100%; width: 100%") %>
+    <div class="desc">Deliver Work</div>
+    <div class="desc2">Get notified when you get an order and start working.</div>
+</div>
+
+<div class="gallery">
+    <%= image_tag("pay.jpg", :alt => "4", style: "height: 100%; width: 100%") %>
+    <div class="desc">Get Paid</div>
+    <div class="desc2">Get paid on time, transferred to you upon order completion.</div>
+</div>
+</body>
+</html>

@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <h2>Welcome <%= @user %> !</h2>
-  <% if current_user.admin == true %>
-    <h4>  </h4>
-    <p>
-      Our recrods indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
-    </p>
-  <% end %>
   <body>
-    <% if user_signed_in? %>
     <h4>All Current Jobs</h4>
     <table id="jobs">
       <tr>
@@ -27,12 +19,8 @@
           <td><%= job.cost %></td>
           <td><%= job.description %></td>
         </tr>
-      <% end %>
+        <% end %>
     </table>
-    <% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
-    <% end %>
+
   </body>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if user_signed_in? %>
+    <table id="wallets">
+      <tr>
+        <th>Card Number</th>
+        <th>Owner</th>
+        <th>Expire Date</th>
+        <th>Edit</th>
+      </tr>
+
+      <% @wallets.each do |card| %>
+        <tr>
+          <td><%= card.cardnumber %></td>
+          <td><%= card.cardowner %></td>
+          <td><%= card.expiredate %></td>
+          <td><%= link_to('Edit', edit_user_wallet_path(@user, card)) %>
+        </tr>
+      <% end %>
+    </table>
+    <div class="wallet">
+      <br/>
+      <h5> Add new card here: <%= link_to('Add a new card', new_user_wallet_path(@user)) %> </h5>
+    </div>
+    <% else %>
+    <li>
+      <%= link_to('Login', new_user_session_path) %>
+    </li>
+    <% end %>
+  </body>
+</html>
