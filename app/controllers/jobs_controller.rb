@@ -15,6 +15,16 @@ class JobsController < ApplicationController
     @job = @user.jobs.new
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  
+    if @job.update(jobs_param)
+      redirect_to users_path
+    else
+      render :edit
+    end
+  end
+
   def create
     @job = Job.new(jobs_param)
     @user = params[:user_id]
