@@ -1,5 +1,5 @@
 <h4>Edit Card: <%= @wallet.cardnumber %></h4>
-<%= form_for :wallet, :url => user_wallets_path(@user, @wallet)  do |f| %>
+<%= form_for :wallet, :url => user_wallet_path(@user, @wallet), method: :patch do |f| %>
   <div class="field">
     <b><%= f.label :Name_on_Card %><br /> </b>
   </div>
@@ -18,5 +18,8 @@
     <b> <%= f.submit "Update" %> </b>
   </div>
 <% end %>
+
+<h3>Delete Card</h3>
+  <%= button_to "Delete Card", user_wallet_path(@user, @wallet), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to 'Back', user_wallets_path %>
