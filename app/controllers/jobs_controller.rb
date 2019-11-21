@@ -15,10 +15,14 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
     if @job.update(jobs_param)
       redirect_to users_path
     else
-      render :edit
+      render 'edit'
     end
   end
 
