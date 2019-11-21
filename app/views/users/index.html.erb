@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <h2>Welcome <%= @user %> !</h2>
+<% if user_signed_in? %>
+  <h4>Welcome <%= @user.fname %> !</h4>
   <% if current_user.admin == true %>
-    <h4>  </h4>
     <p>
       Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
     </p>
   <% end %>
-  <body>
-    <% if user_signed_in? %>
-    <h4>All Current Jobs</h4>
+  <p>
+    The following jobs exist for the Current User:
     <table id="jobs">
       <tr>
         <th>Job Name</th>
@@ -27,14 +24,19 @@
           <td><%= Subcategory.find(job.subcategory_id).name %></td>
           <td><%= job.cost %></td>
           <td><%= job.description %></td>
-          <td><%= link_to 'Details', user_job_path(current_user, job) %></td>
+          <td><%= link_to 'Details', user_job_path(current_user, job) %> | <%= link_to 'Edit', edit_user_job_path(current_user, job) %> | <%= link_to 'Delete', user_job_path(current_user, job),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </table>
-    <% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
-    <% end %>
-  </body>
-</html>
+    <div class="wallet">
+      <br/>
+      <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
+    </div>
+  </p>
+<% else %>
+  <li>
+    <%= link_to('Login', new_user_session_path) %>
+  </li>
+<% end %>

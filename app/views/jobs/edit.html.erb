@@ -1,0 +1,28 @@
+<div class="newjob">
+  <br/>
+  <h2>Edit Job</h2>
+  <%= form_for :job, :url => user_job_path(current_user, @job), method: :patch do |f| %>
+    <div class="field">
+      <b><%= f.label :name %><br /> </b>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <b><%= f.label :subcategory_id %><br /> </b>
+      <%= f.select :subcategory_id, Subcategory.pluck(:name, :category_id)%>
+    </div>
+    <br/>
+    <div class="field">
+      <b><%= f.label :cost %><br /> </b>
+      <%= f.number_field :cost, min:1 %>
+    </div>
+    <br/>
+    <div class="field">
+      <b><%= f.label :description %><br /> </b>
+      <%= f.text_area :description %>
+    </div>
+    <br/>
+    <div class="actions">
+      <b> <%= f.submit "Update" %> </b>
+    </div>
+  <% end %>
+</div>

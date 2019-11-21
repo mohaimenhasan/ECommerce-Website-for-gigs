@@ -10,17 +10,30 @@ class WalletsController < ApplicationController
     @wallet = @user.wallets.new
   end
 
+  def show
+    @wallet = Wallet.find(params[:id])
+  end
+
   def edit
+    @user = User.find(params[:user_id])
     @wallet = Wallet.find(params[:id])
   end
 
   def update
     @wallet = Wallet.find(params[:id])
-    if @wallet.update(wallet_params)
+    if @wallet.update(wallet_param)
       redirect_to user_wallets_path
     else
       render 'edit'
     end
+  end
+
+
+  def destroy
+    @wallet = Wallet.find(params[:id])
+    @wallet.destroy
+
+    redirect_to user_wallets_path
   end
 
   def create

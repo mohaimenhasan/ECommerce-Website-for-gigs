@@ -1,10 +1,8 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_user
 
   def index
-    @user = current_user.fname
-    @jobs = Job.where(:user_id => current_user.id)
+    @jobs = Job.all
   end
 
   def show
@@ -13,6 +11,19 @@ class JobsController < ApplicationController
 
   def new
     @job = @user.jobs.new
+  end
+
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update(jobs_param)
+      redirect_to users_path
+    else
+      render 'edit'
+    end
   end
 
   def create
@@ -36,6 +47,14 @@ class JobsController < ApplicationController
       @parameter = params[:search].downcase
       @results = Job.all.where("lower(jobs.name) LIKE :search ", search: "%#{@parameter}%")
     end
+  end
+
+
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+ 
+    redirect_to users_path
   end
 
   private
