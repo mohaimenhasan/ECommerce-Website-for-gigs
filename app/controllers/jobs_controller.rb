@@ -49,6 +49,14 @@ class JobsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+ 
+    redirect_to users_path
+  end
+
   private
     def jobs_param
       params.require(:job).permit(:name, :cost, :description, :subcategory_id)

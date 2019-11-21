@@ -24,7 +24,9 @@
           <td><%= Subcategory.find(job.subcategory_id).name %></td>
           <td><%= job.cost %></td>
           <td><%= job.description %></td>
-          <td><%= link_to 'Details', user_job_path(current_user, job) %></td>
+          <td><%= link_to 'Details', user_job_path(current_user, job) %> | <%= link_to 'Edit', edit_user_job_path(current_user, job) %> | <%= link_to 'Delete', user_job_path(current_user, job),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </table>
