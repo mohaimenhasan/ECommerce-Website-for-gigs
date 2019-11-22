@@ -2,24 +2,31 @@
 <form>
   <input type="button" value="Go back" onclick="history.back()">
 </form>
-<h4>Jobs</h4>
-    <table id="jobs">
-      <tr>
-        <th>Job Name</th>
-        <th>Category</th>
-        <th>Subcategory</th>
-        <th>Cost</th>
-        <th>Description</th>
-      </tr>
-    <% @results.each do |result| %>   
-        <tr>
-          <td><%= result.name %></td>
-          <td><%= Category.find(Subcategory.find(result.subcategory_id).category_id).name %></td>
-          <td><%= Subcategory.find(result.subcategory_id).name %></td>
-          <td><%= result.cost %></td>
-          <td><%= result.description %></td>
-        </tr>
-    <% end %>
+
+<% @results.each do |job| %>
+  <div class="eachjob spring-fever">
+    <div class="title-content">
+      <h3><%= job.name %></h3>
+      <hr />
+      <div class="intro"><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></div>
+      <div class="intro"><%= Subcategory.find(job.subcategory_id).name %></div>
+    </div><!-- /.title-content -->
+    <div class="card-info">
+      <%= job.description %> <br/>
+      Find More: <%= link_to 'Details', job_detail_path(job) %>
+    </div><!-- /.card-info -->
+    <div class="utility-info">
+      <ul class="utility-list">
+        <li class="usersicon" style="padding-left: 25%"><b><%= User.find(job.user_id).fname %></b></li>
+        <li class="date" style="padding-left: 10%"><%= job.created_at.to_date %></li>
+      </ul>
+    </div><!-- /.utility-info -->
+    <!-- overlays -->
+    <div class="gradient-overlay"></div>
+    <div class="color-overlay"></div>
+  </div><!-- /.blog-card -->
+<% end %>
+
 
 
 

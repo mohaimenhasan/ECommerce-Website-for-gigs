@@ -40,7 +40,6 @@ class JobsController < ApplicationController
   end
 
   def search
-    @user = current_user
     if params[:search].blank?
       redirect_to(root_path, alert: "Empty field!") and return
     else
