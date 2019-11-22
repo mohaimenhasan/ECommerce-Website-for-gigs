@@ -12,8 +12,8 @@
     </div><!-- /.card-info -->
     <div class="utility-info">
       <ul class="utility-list">
-        <li class="usersicon"><%= User.find(job.user_id).fname %></li>
-        <li class="date"><%= job.created_at.to_date %></li>
+        <li class="usersicon" style="padding-left: 25%"><b><%= User.find(job.user_id).fname %></b></li>
+        <li class="date" style="padding-left: 10%"><%= job.created_at.to_date %></li>
       </ul>
     </div><!-- /.utility-info -->
     <!-- overlays -->
