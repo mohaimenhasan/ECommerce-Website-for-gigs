@@ -53,7 +53,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="height:100%;">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -61,5 +61,30 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
+
   </body>
+  <div class="footer">
+
+      <div class="row">
+
+        <div class="col-sm-3">
+          <ul class="footer-nav">
+            <li class="footer-link"><a href="/about">About Us</a></li>
+            <li class="footer-link"><a href="/contact">Contact Us</a></li>
+            <li class="footer-link">FAQ</li>
+            <li class="footer-link">Social Media</li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <ul class="footer-nav">
+            <li class="footer-link">Location</li>
+            <li class="footer-link">Privacy Policy</li>
+            <li class="footer-link">Terms and Conditions</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
 </html>

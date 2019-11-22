@@ -176,6 +176,12 @@
   padding: 8px;
 }
 
+.input-group2{
+  display: inline;
+  padding:8px;
+  width:75%;
+}
+
 .newjob input[type=submit]:hover {
   background-color: #45a049;
 }
@@ -266,4 +272,31 @@
  @media screen and (max-width: 600px) {
    ul.topnav li.right,
    ul.topnav li {float: none;}
+ }
+
+ .footer{
+  padding-top:5%;
+  padding-bottom:5%;
+  padding-left: 10%;
+  color: white;
+  background-color: grey;
+  bottom:0;
+  width: 100%; 
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: -200px;
+ }
+
+ .footer-nav{
+   list-style-type: none;
+ }
+
+ .footer-link a:link{
+  color:white;
+ }
+
+ .footer-link a:hover{
+   color:#17a2b8;
+   text-decoration: none;
  }

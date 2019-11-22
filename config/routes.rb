@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'about', :to => 'about#index'
   get 'home', :to => 'home#index'
   get 'jobs', :to => 'jobs#index'
+  get 'contact', :to => 'contact#index'
   get 'manage store', :to => 'users#index'
   get 'job/:id', :to => 'jobs#show', :as => 'job_detail'
 end

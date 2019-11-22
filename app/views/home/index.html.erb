@@ -21,11 +21,18 @@
 </style>
 
 <%= image_tag("background.jpg", :alt => "Nature", style: "height: 100%; width: 100%") %>
-
   <div class="text-block">
-    <h1>Home-Gig</h1>
-    <h4>Find the budget yet elegent solution to your business</h4>
+    <h1>Home Gig</h1>
+    <h4>Find the budget yet elegant solution to your business</h4>
   </div>
   <div class="text-block2">
-    <h2>_________________________Search</h2
+    <%= form_tag(search_page_path, :method => "get") do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
+        <div class = "input-group-btn" style=>
+          <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search', :name => nil %>
+        </div>
+      </div>
+    <% end %>
   </div>
+
