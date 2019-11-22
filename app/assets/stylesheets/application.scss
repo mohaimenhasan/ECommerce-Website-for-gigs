@@ -12,55 +12,8 @@
  *
  */
  @import "bootstrap";
- @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
- @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic);
 
- // variables
- $card-width:  350px;
- $card-height: 500px;
- $h-color:     #9CC9E3;
- $yellow:      #D0BB57;
- $txt-color:   #DCE3E7;
-
- * {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
- }
-
- body {
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: top;
-  background-image:url(http://bit.ly/2gPLxZ4);
-  width: 100%;
-  height: 100%;
-  font-family: Arial, Helvetica;
-  letter-spacing: 0.02em;
-   font-weight: 400;
-  -webkit-font-smoothing: antialiased;
- }
-
- .text-block {
-   position: absolute;
-   top: 100px;
-   left: 20px;
-   background-color: rgba(0,128,0, 0.5);
-   color: white;
-   padding-left: 20px;
-   padding-right: 20px;
- }
- .text-block2 {
-   position: absolute;
-   top: 300px;
-   left: 20px;
-   background-color: rgba(0, 0, 0, 0.5);
-   color: white;
-   padding-left: 20px;
-   padding-right: 20px;
- }
+ body {margin: 0;}
 
  .wallet {
    text-align: center;
@@ -85,7 +38,7 @@
  ::-webkit-scrollbar-thumb:hover {
    background: #555;
  }
-
+ 
  ul.topnav {
    list-style-type: none;
    margin: 0;
@@ -189,38 +142,10 @@
   display: block;
 }
 
-.sign-up {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-left: 25%;
-  margin-top: 5%;
-  width: 50%;
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
 .log-in {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-left: 30%;
-  margin-top: 10%;
-  width: 50%;
   text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-.log-in input[type=email], .log-in input[type=password]{
-  height: 5vh;
-  width: 50%;
-}
-
-/* Button */
-.log-in input[type=submit], .log-in button[type=submit]{
-  text-transform: uppercase;
-  padding: 10px 60px;
-  color: white;
-  background: #17A2B8;
-  font-weight: normal;
+  padding-top: 10%;
+  margin: 0 auto;
 }
 
 .newjob{
@@ -268,11 +193,11 @@
  ul.topnav li.right {float: right;}
 
 .edit_user{
-  background-color: rgba(255, 255, 255, 0.5);
   align-items: center;
-  text-align: center;
-  width: 50%;
-  margin: 0 auto;
+}
+
+.edit_user{
+  margin-left: 10%;
 }
 
 .edit_user input, select{
@@ -296,137 +221,6 @@
 
 .edit_user input[type=submit]:hover {
   background-color: #45a049;
-}
-
-.eachjob{
-  width: $card-width;
-  height: $card-height;
-  display: inline-block;
-  position: relative;
-  margin-top: 5%;
-  margin-left: 5%;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
-  text-align: center;
-
-  &.spring-fever{
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/bg-blog-card.jpg) no-repeat;
-  }
-
-  .color-overlay{
-    /* Rectangle 11: */
-    background: rgba(84,104,110,0.4);
-    width: $card-width;
-    height: $card-height;
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    transition: background .3s cubic-bezier(.33,.66,.66,1);
-  }
-  .gradient-overlay{
-    /* bg-gradient: */
-    background-image: -webkit-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
-    background-image: -moz-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
-    background-image: -o-linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
-    background-image: linear-gradient(rgba(0,0,0,0.00) 0%, rgba(0,0,0,.6) 21%);
-    width: $card-width;
-    height: $card-height;
-    position: absolute;
-    top: 350px;
-    left: 0;
-    z-index: 15;
-  }
-
-  &:hover{
-
-    .card-info{
-      opacity: 1;
-      bottom: 120px;
-    }
-    .color-overlay{
-      background: rgba(84,104,110,0.8);
-    }
-  }
-}
-
-.title-content{
-  text-align: center;
-  margin: 70px 0 0 0;
-  position: absolute;
-  z-index: 20;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
-h3{
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  color: $h-color;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 0;
-}
-hr{
-  width: 50px;
-  height: 3px;
-  margin: 20px auto;
-  border: 0;
-  background: $yellow;
-}
-.intro{
-  width: 170px;
-  margin: 0 auto;
-  color: $txt-color;
-  font-family: 'Droid Serif', serif;
-  font-size: 13px;
-  font-style: italic;
-  line-height: 18px;
-}
-.card-info{
-  width: 100%;
-  position: absolute;
-  bottom: 100px;
-  left: 0;
-  margin: 0 auto;
-  padding: 0 50px;
-  color: $txt-color;
-  font-family: 'Droid Serif', serif;
-  font-style: 16px;
-  line-height: 24px;
-  z-index: 20;
-  opacity: 0;
-  transition: bottom .3s, opacity .3s cubic-bezier(.33,.66,.66,1);
-}
-
-.utility-info{
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  z-index: 20;
-}
-.utility-list{
-  list-style-type: none;
-  margin: 0 0 30px 20px;
-  padding: 0;
-  width: 100%;
-
-  li{
-    margin: 0 15px 0 0;
-    padding: 0 0 0 22px;
-    display: inline-block;
-    color: $txt-color;
-    font-family: 'Roboto', sans-serif;
-
-    &.usersicon{
-      height: 8vh;
-      background: url(https://img.icons8.com/dusk/64/000000/user-male.png) no-repeat 0.00001em;
-    }
-    &.date{
-      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 .1em;
-    }
-  }
 }
 
  #jobs {
@@ -481,8 +275,8 @@ hr{
  }
 
  .footer{
-  padding-top:5%;
-  padding-bottom:5%;
+  padding-top 2%;
+  padding-bottom:2%;
   padding-left: 10%;
   color: white;
   background-color: grey;
