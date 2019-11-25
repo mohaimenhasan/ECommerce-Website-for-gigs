@@ -22,6 +22,21 @@
     <% end %>
 
     <div class="field">
+      <%= f.label :street_address %><br />
+      <%= f.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= f.label :province %><br />
+      <%= f.text_field :province %>
+    </div>
+
+    <div class="field">
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postalCode %>
+    </div>
+
+    <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>

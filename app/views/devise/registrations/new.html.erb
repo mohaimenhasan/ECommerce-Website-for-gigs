@@ -19,6 +19,21 @@
     </div>
 
     <div class="field">
+      <%= f.label :street_address %><br />
+      <%= f.text_field :street %>
+    </div>
+
+    <div class="field">
+      <%= f.label :province %><br />
+      <%= f.text_field :province %>
+    </div>
+
+    <div class="field">
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postalCode %>
+    </div>
+
+    <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>

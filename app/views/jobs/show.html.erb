@@ -19,14 +19,16 @@
     <p>
       <h4><b>Description:</b> <%= @job.description %> </h4>
     </p>
-    <% if user_signed_in? %>
-      <div class="row">
-        <div class="col-md-12 mt-4 text-center">
-          <%= form_tag id: "billing-order-object" do  %>
-            
-          <% end %>
+    <% if user_signed_in?%>
+      <% if @job.user_id != current_user.id %>
+        <div class="row">
+          <div class="col-md-12 mt-4 text-center">
+            <%= form_tag id: "billing-sign-in" do  %>
+              <%= link_to "Order Now", new_order_path(@job), class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% else %>
       <div class="row">
         <div class="col-md-12 mt-4 text-center">

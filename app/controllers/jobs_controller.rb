@@ -81,6 +81,31 @@ class JobsController < ApplicationController
     end
   end
 
+  def new_order
+    @job = params[:id]
+    str_id = Job.find(@job).stripe_id
+    Stripe::Order.create({
+      currency: 'cad',
+      email: current_user.email,
+      items: [
+        {type: 'sku', parent: str_id},
+      ],
+      shipping: {
+        name: current_user.fname+' '+current_user.lname,
+        address: {
+          line1: current_user.street,
+          city: current_user.city,
+          state: current_user.province,
+          country: 'CA',
+          postal_code: current_user.postalCode,
+        },
+      },
+    })
+    @ongoing = OngoingTask.new({job_id: @job, user_id: current_user.id, status: "ongoing"})
+    @ongoing.save
+    redirect_to jobs_path
+  end
+
   def search
     if params[:search].blank?
       redirect_to(root_path, alert: "Empty field!") and return
