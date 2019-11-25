@@ -26,6 +26,48 @@ class JobsController < ApplicationController
     end
   end
 
+  def delete_job(jobid)
+    str_id = Job.find(jobid).stripe_id
+    jobv = Stripe::SKU.retrieve(str_id)
+    prd_id = jobv["product"]
+    Stripe::SKU.delete(jobv["id"])
+    Stripe::Product.delete(prd_id)
+  end
+
+  def create_job(jobid)
+    @job = Job.find(jobid)
+    respond_to do |format|
+      if @job.stripe_id.nil?
+        productv = Stripe::Product.create({
+          name: @job.name,
+          type: 'good',
+          description: @job.description,
+          })
+        productv.save
+        #here we are creating a stripe customer with the help of the Stripe library and pass as parameter email.
+        jobv = Stripe::SKU.create({
+          currency: 'cad',
+          inventory: {
+            'type' => 'infinite'
+          },
+          price: @job.cost.to_i,
+          product: productv.id
+        })
+        @job.update(:stripe_id => jobv.id)
+        #we are updating current_user and giving to it stripe_id which is equal to id of customer on Stripe
+      end
+
+      jobtoken = params[:stripeToken]
+      #it's the stripeToken that we added in the hidden input
+      if jobtoken.nil?
+        format.html { redirect_to jobs_path, error: "Oops"}
+      end
+      #checking if a job was giving.
+      jobv = Stripe::SKU.new @job.stripe_id
+      jobv.save
+    end
+  end
+
   def create
     @job = Job.new(jobs_param)
     @user = params[:user_id]
@@ -33,7 +75,7 @@ class JobsController < ApplicationController
     @job.user_id = @user
     @job.subcategory_id = @subcategory
     if @job.save
-      redirect_to users_path
+      create_job(@job.id)
     else
       render :new
     end
@@ -51,8 +93,8 @@ class JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
+    delete_job(@job.id)
     @job.destroy
- 
     redirect_to users_path
   end
 

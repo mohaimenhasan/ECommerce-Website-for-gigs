@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_164917) do
+ActiveRecord::Schema.define(version: 2019_11_25_045915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 2019_11_17_164917) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.bigint "subcategory_id"
+    t.string "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
+    t.string "stripe_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -63,19 +63,9 @@ ActiveRecord::Schema.define(version: 2019_11_17_164917) do
     t.string "fname"
     t.string "lname"
     t.boolean "admin", default: false
+    t.string "stripe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wallets", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "cardowner"
-    t.string "cardnumber"
-    t.date "expiredate"
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_wallets_on_user_id"
-  end
-
-  add_foreign_key "wallets", "users"
 end

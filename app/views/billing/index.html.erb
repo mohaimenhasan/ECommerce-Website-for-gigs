@@ -1,0 +1,20 @@
+<div class="log-in">
+  <h4> Hello <%= @user.fname %> </h4>
+  <p> The following cards exist for you: </p>
+  <div style="text-align: left; margin-left: 10%;">
+    <% @cards.each do |card| %>
+       <h5> <li> Card information: </li> </h5>
+       <h7> <b>Ending With: </b>**** **** **** **** <%= card["last4"] %> </h7> <br/>
+       <h7> <b>Type: </b><%= card["funding"] %> </h7> <br/>
+       <h7> <b>Expiring: </b><%= card["exp_month"] %>, <%= card["exp_year"] %> </h7>
+       <%= link_to "Delete Card", delete_card_path(card["id"]) %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-4 text-center">
+      <%= form_tag create_payment_method_path, id: "billing-create-payment-method" do  %>
+        <%= link_to "Add a new card", add_payment_method_path, :remote => true, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

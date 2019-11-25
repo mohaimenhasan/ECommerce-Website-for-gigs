@@ -17,7 +17,7 @@
 
  // variables
  $card-width:  350px;
- $card-height: 500px;
+ $card-height: 450px;
  $h-color:     #9CC9E3;
  $yellow:      #D0BB57;
  $txt-color:   #DCE3E7;
@@ -476,6 +476,76 @@ hr{
    text-align: left;
    background-color: #fcba03;
    color: white;
+ }
+
+ .jobwrapper {
+   position: relative;
+   perspective: 40em;
+   display: grid;
+   transform-style: preserve-3d;
+ }
+
+ .jobcard {
+   margin-bottom: 15%;
+   margin-left: 21vw;
+   grid-area: 1 / 1;
+   height: 60vh;
+   width: 50vw;
+   transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+   background: rgba(249, 198, 26, 0.88);
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 30px;
+   color: #000;
+   text-transform: uppercase;
+   font-weight: 900;
+   backface-visibility: hidden;
+   box-shadow: 0 10px 30px -3px rgba(0,0,0,.1);
+ }
+
+ .jobcard {
+   text-align: center;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 1;
+   color: black;
+   padding: 0 5px;
+   margin-top: 13vh;
+   margin-bottom: 10%;
+   margin-right: 3%;
+   display: inline-block;
+   transform: translate(-1px, 1px) scale(0.75);
+   transform-origin: right center;
+ }
+
+ .jobwrapper:before {
+   --bw: 9px;
+   grid-area: 1 / 1;
+   content: '';
+   backface-visibility: hidden;
+   height: 70%;
+   width: 51%;
+   margin-top: 10vh;
+   margin-left: 20vw;
+   background: transparent;
+   transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+   pointer-events: none;
+   border: var(--bw) solid grey;
+   box-sizing: content-box;
+ }
+
+
+ .jobwrapper:hover > div,
+ .jobwrapper:hover:before {
+   transform: none;
+ }
+
+
+ .jobwrapper > div,
+ .jobwrapper:before {
+   will-change: transform;
+   transition: .3s transform cubic-bezier(.25,.46,.45,1);
  }
 
  @media screen and (max-width: 600px) {

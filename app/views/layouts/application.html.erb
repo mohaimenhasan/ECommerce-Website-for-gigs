@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <%= javascript_include_tag 'https://checkout.stripe.com/checkout.js' %>
   <% if user_signed_in? %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <ul class="topnav">
@@ -21,7 +22,7 @@
         <div class="dropdown-content">
             <%= link_to('My Account', edit_user_registration_path) %>
             <%= link_to('Create New', new_user_job_path(current_user)) %>
-            <%= link_to('My Wallet', user_wallets_path(current_user)) %>
+            <%= link_to('My Wallet', billing_path) %>
             <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
         </div>
       </li>

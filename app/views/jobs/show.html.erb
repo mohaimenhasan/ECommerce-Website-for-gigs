@@ -1,27 +1,43 @@
-<h2><%= @job.name %> !</h2>
-<p>
-  <strong>Category:</strong>
-  <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
-</p>
+<div class="jobwrapper">
+  <div class="jobcard">
+    <span class="enclosed"><h1><b><%= @job.name %> !</h1></b></span> <br/>
+    <p> <strong> Posted By: </strong> <%= link_to User.find(@job.user_id).fname, user_path(@job.user_id) %> </p>
+    <p>
+      <strong>Category:</strong>
+      <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
+    </p>
 
-<p>
-  <strong>Subcategory:</strong>
-  <%= Subcategory.find(@job.subcategory_id).name %>
-</p>
+    <p>
+      <h4><b>Subcategory:</b> <%= Subcategory.find(@job.subcategory_id).name %></h4>
+    </p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @job.cost %>
-</p>
+    <p>
+      <strong>Cost:</strong>
+      <%= @job.cost %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
-
-<p>
-
-  <%= link_to 'Back', users_path %>
-
-
-</p>
+    <p>
+      <h4><b>Description:</b> <%= @job.description %> </h4>
+    </p>
+    <% if user_signed_in? %>
+      <div class="row">
+        <div class="col-md-12 mt-4 text-center">
+          <%= form_tag id: "billing-order-object" do  %>
+            
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="col-md-12 mt-4 text-center">
+          <%= form_tag id: "billing-sign-in" do  %>
+            <%= link_to "Sign In to Order", new_user_session_path, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <p>
+      <h4><%= link_to 'Back to browsing', jobs_path %></h4>
+    </p>
+  </div>
+</div>
