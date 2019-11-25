@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get 'billing/card/delete/:id' => 'billing#destroy', :as => 'delete_card'
   post 'billing/card' => "billing#create_card", as: :create_payment_method
   get 'billing/success' => 'billing#success', as: :success
+  get 'billing/success_message' => 'billing#success_message', as: :success_message
   get 'jobs/order/:id' => "jobs#new_order", as: :new_order
 end

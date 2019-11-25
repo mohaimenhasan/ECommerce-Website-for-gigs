@@ -13,6 +13,9 @@ class BillingController < ApplicationController
     end
   end
 
+  def success_message
+  end
+
   def create_card
     respond_to do |format|
       if current_user.stripe_id.nil?

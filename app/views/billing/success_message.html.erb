@@ -1,0 +1,91 @@
+<style>
+  .wrapper {
+    position: relative;
+    perspective: 40em;
+    display: grid;
+    transform-style: preserve-3d;
+  }
+
+  .card {
+    margin-top: 10%;
+    margin-bottom: 15%;
+    margin-left: 21vw;
+    grid-area: 1 / 1;
+    height: 60vh;
+    width: 50vw;
+    transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+    background: rgba(249, 198, 26, 0.88);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: 900;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 30px -3px rgba(0,0,0,.1);
+  }
+
+  h1 {
+    font-size: 60px;
+    font-weight: 900;
+  }
+
+  .card .enclosed {
+    background: #000;
+    line-height: 1;
+    color: rgba(249, 198, 26, 1);
+    padding: 0 5px;
+    margin-top: 13vh;
+    margin-bottom: 10%;
+    margin-right: 3%;
+    display: inline-block;
+    transform: translate(-1px, 1px) scale(0.75);
+    transform-origin: right center;
+  }
+
+  .wrapper:before {
+    --bw: 9px;
+    grid-area: 1 / 1;
+    content: '';
+    backface-visibility: hidden;
+    height: 70%;
+    width: 51%;
+    margin-top: 10vh;
+    margin-left: 20vw;
+    background: transparent;
+    transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+    pointer-events: none;
+    border: var(--bw) solid #000;
+    box-sizing: content-box;
+  }
+
+
+  .wrapper:hover > div,
+  .wrapper:hover:before {
+    transform: none;
+  }
+
+
+  .wrapper > div,
+  .wrapper:before {
+    will-change: transform;
+    transition: .3s transform cubic-bezier(.25,.46,.45,1);
+  }
+
+</style>
+<div class="wrapper">
+  <div class="card">
+    <h1>
+      <span class="enclosed">Order Successful</span>
+      <div class="row">
+        <div class="col-md-12 mt-4 text-center">
+          <%= form_tag id: "billing-sign-in" do  %>
+            <%= link_to "View All Orders" %>
+          <% end %>
+        </div>
+      </div>
+    </h1>
+  </div>
+</div>

@@ -39,8 +39,8 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Stripe add
-  config.stripe.secret_key = Rails.application.credentials.stripe[:production][:secret_key]
-  config.stripe.publishable_key = Rails.application.credentials.stripe[:production][:publishable_key]
+  config.stripe.secret_key = Rails.application.credentials.stripe[:production][:stripe_secret_key]
+  config.stripe.publishable_key = Rails.application.credentials.stripe[:production][:stripe_publishable_key]
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

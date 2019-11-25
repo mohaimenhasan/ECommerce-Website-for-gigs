@@ -103,7 +103,7 @@ class JobsController < ApplicationController
     })
     @ongoing = OngoingTask.new({job_id: @job, user_id: current_user.id, status: "ongoing"})
     @ongoing.save
-    redirect_to jobs_path
+    redirect_to success_message_path
   end
 
   def search
