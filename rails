@@ -1,0 +1,10 @@
+stripe:
+  development:
+    publishable_key: 'pk_test_2rSfQB78uhLlD7EM8LVgiIMX00b9eMsa47'
+    secret_key: 'sk_test_d2M93QQUhPkg9ckhgQz3IQv900Vn7Lwmh5'
+  production:
+    stripe_publishable_key: 'pk_test_2rSfQB78uhLlD7EM8LVgiIMX00b9eMsa47'
+    stripe_secret_key: 'sk_test_d2M93QQUhPkg9ckhgQz3IQv900Vn7Lwmh5'
+# aws:
+#   access_key_id: 123
+#   secret_access_key: 345
