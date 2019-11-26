@@ -3,6 +3,12 @@ class BillingController < ApplicationController
 
   def index
     @user=current_user
+    if current_user.stripe_id.nil?
+      customer = Stripe::Customer.create({"email": current_user.email})
+      #here we are creating a stripe customer with the help of the Stripe library and pass as parameter email.
+      current_user.update(:stripe_id => customer.id)
+      #we are updating current_user and giving to it stripe_id which is equal to id of customer on Stripe
+    end
     @customer = Stripe::Customer.list({email: current_user.email})
     @cards = Stripe::Customer.list_sources(@customer['data'][0]['id'], {object: 'card'},)
   end
