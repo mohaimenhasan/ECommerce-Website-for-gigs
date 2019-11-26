@@ -37,6 +37,12 @@ class JobsController < ApplicationController
   def create_job(jobid)
     @job = Job.find(jobid)
     respond_to do |format|
+      if current_user.stripe_id.nil?
+        customer = Stripe::Customer.create({"email": current_user.email})
+        #here we are creating a stripe customer with the help of the Stripe library and pass as parameter email.
+        current_user.update(:stripe_id => customer.id)
+        #we are updating current_user and giving to it stripe_id which is equal to id of customer on Stripe
+      end
       if @job.stripe_id.nil?
         productv = Stripe::Product.create({
           name: @job.name,
@@ -82,6 +88,12 @@ class JobsController < ApplicationController
   end
 
   def new_order
+    if current_user.stripe_id.nil?
+      customer = Stripe::Customer.create({"email": current_user.email})
+      #here we are creating a stripe customer with the help of the Stripe library and pass as parameter email.
+      current_user.update(:stripe_id => customer.id)
+      #we are updating current_user and giving to it stripe_id which is equal to id of customer on Stripe
+    end
     @job = params[:id]
     str_id = Job.find(@job).stripe_id
     Stripe::Order.create({
