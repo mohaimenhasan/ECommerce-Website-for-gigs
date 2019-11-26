@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
-  devise_for :users
+  devise_for :user
+  
   resources :users do
     resources :jobs
   end
-
+  resources :personal_messages, only: [:new ,:create]
+  resources :conversations, only: [:index, :show]
+  
   get '/search' => 'jobs#search', :as => 'search_page'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'about', :to => 'about#index'

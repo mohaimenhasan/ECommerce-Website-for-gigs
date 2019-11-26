@@ -1,7 +1,7 @@
 <div class="jobwrapper">
   <div class="jobcard">
     <span class="enclosed"><h1><b><%= @job.name %> !</h1></b></span> <br/>
-    <p> <strong> Posted By: </strong> <%= link_to User.find(@job.user_id).fname, user_path(@job.user_id) %> </p>
+    <p> <strong> Posted By: </strong> <%= link_to User.find(@job.user_id).fname, user_path(id: @job.user_id) %> </p>
     <p>
       <strong>Category:</strong>
       <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
