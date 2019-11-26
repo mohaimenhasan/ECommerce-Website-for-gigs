@@ -1,0 +1,10 @@
+
+
+<% @user.each do |u| %>
+  <li>debug message: The user id is <%= u.id %><li>
+  <li>
+<%= u.fname %> | <%= link_to 'send a message', new_personal_message_path(receiver_id: u.id) %>
+</li>
+  
+<% end %>
+
