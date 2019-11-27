@@ -6,25 +6,25 @@
     </p>
   <% end %>
   <p>
-    The following jobs exist for the Current User:
+    Here are all your previous orders:
     <table id="jobs">
       <tr>
-        <th>Order Name</th>
-        <th>Category</th>
-        <th>Subcategory</th>
-        <th>Cost</th>
-        <th>Description</th>
-        <th>Details</th>
+        <th>Order Number</th>
+        <th>Gig Name</th>
+        <th>Amount Paid</th>
+        <th>Status</th>
+        <th>Seller Name</th>
+        <th>Creation Date</th>
       </tr>
 
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.email %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= order.id %></td>
+          <td><%= Job.find(order.job_id).name%></td>
+          <td>$<%= order.amount%></td>
+          <td><%= order.status%></td>
+          <td><%= User.find(order.user_id).fname%></td>
+          <td><%= order.created_at%></td>
         </tr>
       <% end %>
     </table>
