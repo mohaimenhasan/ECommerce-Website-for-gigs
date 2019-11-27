@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   get 'billing/success_message' => 'billing#success_message', as: :success_message
   get 'jobs/order/:id' => "jobs#new_order", as: :new_order
   get 'user/:id/orders' => "orders#index", as: :user_orders
+  delete 'user/:id/orders/:id' => "orders#destroy", as: :delete_user_order
 end

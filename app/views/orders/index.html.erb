@@ -15,7 +15,7 @@
         <th>Status</th>
         <th>Seller Name</th>
         <th>Creation Date</th>
-
+        <th>Action</th>
       </tr>
 
       <% @orders.each do |order| %>
@@ -26,7 +26,9 @@
           <td><%= order.status%></td>
           <td><%= link_to User.find(order.user_id).fname, user_path(id: order.user_id)%></td>
           <td><%= order.created_at%></td>
-
+          <td><%= link_to 'Delete Order', delete_user_order_path(current_user, order),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </table>
