@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_193450) do
+ActiveRecord::Schema.define(version: 2019_11_27_053733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 2019_11_25_193450) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.string "subcategory_id"
+    t.bigint "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
+    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -52,6 +53,17 @@ ActiveRecord::Schema.define(version: 2019_11_25_193450) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_id"], name: "index_ongoing_tasks_on_job_id"
     t.index ["user_id"], name: "index_ongoing_tasks_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "user_id"
+    t.integer "status"
+    t.integer "customer_id"
+    t.float "amount"
+    t.string "stripe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "personal_messages", force: :cascade do |t|

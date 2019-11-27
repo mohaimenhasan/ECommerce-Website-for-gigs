@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+  <h4>Welcome <%= @user.fname %> !</h4>
+  <% if current_user.admin == true %>
+    <p>
+      Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
+    </p>
+  <% end %>
+  <p>
+    The following jobs exist for the Current User:
+    <table id="jobs">
+      <tr>
+        <th>Order Name</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Cost</th>
+        <th>Description</th>
+        <th>Details</th>
+      </tr>
+
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.email %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="wallet">
+      <br/>
+      <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
+    </div>
+  </p>
+<% else %>
+  <li>
+    <%= link_to('Login', new_user_session_path) %>
+  </li>
+<% end %>

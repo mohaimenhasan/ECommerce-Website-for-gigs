@@ -115,6 +115,8 @@ class JobsController < ApplicationController
     })
     @ongoing = OngoingTask.new({job_id: @job, user_id: current_user.id, status: "ongoing"})
     @ongoing.save
+    @order = Order.new({job_id: @job, user_id: @job.user_id, customer_id: current_user.id, status: 0, amount: @job.cost})
+    @order.save
     redirect_to success_message_path
   end
 
