@@ -34,13 +34,12 @@ ActiveRecord::Schema.define(version: 2019_11_25_193450) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.bigint "subcategory_id"
+    t.string "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
-    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -84,14 +83,14 @@ ActiveRecord::Schema.define(version: 2019_11_25_193450) do
     t.string "fname"
     t.string "lname"
     t.boolean "admin", default: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string "stripe_id"
     t.string "street"
     t.string "city"
     t.string "province"
     t.string "postalCode"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
