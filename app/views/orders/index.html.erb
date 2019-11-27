@@ -15,16 +15,18 @@
         <th>Status</th>
         <th>Seller Name</th>
         <th>Creation Date</th>
+
       </tr>
 
       <% @orders.each do |order| %>
         <tr>
           <td><%= order.id %></td>
-          <td><%= Job.find(order.job_id).name%></td>
+          <td><%= link_to Job.find(order.job_id).name, job_detail_path(order.job_id)%></td>
           <td>$<%= order.amount%></td>
           <td><%= order.status%></td>
-          <td><%= User.find(order.user_id).fname%></td>
+          <td><%= link_to User.find(order.user_id).fname, user_path(id: order.user_id)%></td>
           <td><%= order.created_at%></td>
+
         </tr>
       <% end %>
     </table>
