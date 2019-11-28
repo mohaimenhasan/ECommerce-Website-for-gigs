@@ -82,7 +82,7 @@
       <div class="row">
         <div class="col-md-12 mt-4 text-center">
           <%= form_tag id: "billing-sign-in" do  %>
-            <%= link_to "View All Orders" %>
+            <%= link_to "View All Orders", user_orders_path(current_user) %>
           <% end %>
         </div>
       </div>

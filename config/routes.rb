@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
   devise_for :user
-  
+
   resources :users do
     resources :jobs
   end
   resources :personal_messages, only: [:new ,:create]
   resources :conversations, only: [:index, :show]
-  
+
   get '/search' => 'jobs#search', :as => 'search_page'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'about', :to => 'about#index'
@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get 'billing/success' => 'billing#success', as: :success
   get 'billing/success_message' => 'billing#success_message', as: :success_message
   get 'jobs/order/:id' => "jobs#new_order", as: :new_order
+  get 'user/:id/orders' => "orders#index", as: :user_orders
+  delete 'user/:id/orders/:id' => "orders#destroy", as: :delete_user_order
 end
