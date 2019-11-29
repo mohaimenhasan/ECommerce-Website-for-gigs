@@ -24,8 +24,8 @@
             <%= link_to('My Orders', user_orders_path(current_user)) %>
             <%= link_to('Create New', new_user_job_path(current_user)) %>
             <%= link_to('My Wallet', billing_path) %>
-            <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
             <%= link_to('Conversations', conversations_path) %>
+            <%= link_to('Log Out', destroy_user_session_path, method: :delete) %>
         </div>
       </li>
       <li class="right"><a href="/about">About</a></li>
