@@ -1,1 +1,46 @@
-<h2>You can find us at this location!</h2>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location Map</title>
+    <%# <%= stylesheet_link_tag "location" %>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <style>
+    /* Always set the map height explicitly to define the size of the div element that contains the map. */
+        .mapouter{
+            position:relative;
+            text-align:center;
+            width:80vw;
+            margin-left:10vw;
+            margin-right:10vw;
+        }
+        #gmap_canvas {
+            overflow:hidden;
+            background:none!important;
+            height:90vh;
+            width:80vw;
+            margin-bottom:6vh;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <div style="margin-left:5vw; margin-right:5vw; margin-bottom:5vh;">
+    <h1 style="margin-top:6vh;">You can find us at this location!</h1>
+    <p>Address</p>
+    </div>
+    
+    <div class="mapouter">
+        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=27%20King's%20College%20Circle&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>  
+    </div>
+    
+    
+  </body>
+</html>
