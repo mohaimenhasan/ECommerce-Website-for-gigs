@@ -555,13 +555,19 @@ hr{
 
  .footer-nav{
    list-style-type: none;
+   color:white;
  }
 
- .footer-link a:link{
+ .footer-link a:link {
+  color: white;
+}
+
+.footer-link a:visited{
   color:white;
- }
+}
 
  .footer-link a:hover{
    color:#17a2b8;
    text-decoration: none;
  }
+
