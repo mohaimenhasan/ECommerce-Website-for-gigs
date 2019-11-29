@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.where(:id => params[:id])
+    @user = User.where(:id => params[:id])
+    @jobs = Job.where(:user_id => @user[0].id)
   end
 end
