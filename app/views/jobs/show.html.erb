@@ -1,23 +1,18 @@
 <div class="jobwrapper">
   <div class="jobcard">
-    <span class="enclosed"><h1><b><%= @job.name %> !</h1></b></span> <br/>
-    <p> <strong> Posted By: </strong> <%= link_to User.find(@job.user_id).fname, user_path(id: @job.user_id) %> </p>
-    <p>
-      <strong>Category:</strong>
-      <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
+    <span class="enclosed"> <h1 style="font-size:2vw;"><b><%= @job.name %> !</h1>
+    <p style="font-size:1.5vw;">
+      <b>Category:</b>
+        <%= Category.find(Subcategory.find(@job.subcategory_id).category_id).name %>
+        <b>-></b> 
+        <%= Subcategory.find(@job.subcategory_id).name %> 
     </p>
+    </b></span> <br/>
+    <p style="font-size:2vw;"> <strong> Posted By: </strong> <%= link_to User.find(@job.user_id).fname, user_path(id: @job.user_id) %> </p>
 
-    <p>
-      <h4><b>Subcategory:</b> <%= Subcategory.find(@job.subcategory_id).name %></h4>
-    </p>
-
-    <p>
+    <p style="font-size:2vw;">
       <strong>Cost:</strong>
       <%= @job.cost %>
-    </p>
-
-    <p>
-      <h4><b>Description:</b> <%= @job.description %> </h4>
     </p>
     <% if user_signed_in?%>
       <% if @job.user_id != current_user.id %>
@@ -41,5 +36,9 @@
     <p>
       <h4><%= link_to 'Back to browsing', jobs_path %></h4>
     </p>
+    <p style="font-size:2vw;">
+      <h4 style="font-size:2vw;"><b>Description:</b> <%= @job.description %> </h4>
+    </p>
+    
   </div>
 </div>
