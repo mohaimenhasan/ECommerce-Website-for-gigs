@@ -36,8 +36,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Stripe Keys
-  config.stripe.secret_key = Rails.application.credentials.stripe[:test][:secret_key]
-  config.stripe.publishable_key = Rails.application.credentials.stripe[:test][:publishable_key]
+  config.stripe.secret_key = ENV['STRIPE_SECRET_KEY']
+  config.stripe.publishable_key = ENV['STRIPE_PUBLISHABLE_KEY']
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
