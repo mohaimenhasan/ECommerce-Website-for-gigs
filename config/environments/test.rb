@@ -5,7 +5,7 @@
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
   config.cache_classes = true
 
   # Do not eager load code on boot. This avoids loading your whole application
@@ -34,6 +34,10 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   config.action_mailer.perform_caching = false
+
+  # Stripe Keys
+  config.stripe.secret_key = Rails.application.credentials.stripe[:test][:secret_key]
+  config.stripe.publishable_key = Rails.application.credentials.stripe[:test][:publishable_key]
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the

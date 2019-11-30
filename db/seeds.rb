@@ -53,7 +53,3 @@ Subcategory.create(name: 'Career Advice', category_id: categories[6].id)
 Subcategory.create(name: 'Online Lessons', category_id: categories[7].id)
 Subcategory.create(name: 'Health, Nutrition & Fitness', category_id: categories[7].id)
 Subcategory.create(name: 'Arts & Crafts', category_id: categories[7].id)
-
-
-
-
