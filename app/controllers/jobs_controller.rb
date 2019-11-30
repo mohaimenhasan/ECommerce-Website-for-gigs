@@ -2,7 +2,11 @@ class JobsController < ApplicationController
   before_action :set_user
 
   def index
-    @jobs = Job.all
+    if(params[:cid])
+      @jobs = Job.all.where(:subcategory => params[:cid])
+    else
+      @jobs = Job.all
+    end
   end
 
   def show

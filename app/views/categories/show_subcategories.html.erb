@@ -1,0 +1,9 @@
+<% @categories.each do |c| %>
+  <h3><%= c.name %></h3>
+<% end %>
+
+<% @subcategories.each do |s| %>
+
+  <li><%= link_to s.name, jobs_path(cid: s.id) %></li>
+
+<% end %>

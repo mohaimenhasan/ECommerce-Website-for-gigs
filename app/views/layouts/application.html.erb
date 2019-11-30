@@ -7,6 +7,7 @@
       <li><a href="/home">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
       <li><a href="/users">Manage Store</a></li>
+      <li><a href="/categories">Categories</a></li>
       <li><%= form_tag(search_page_path, :method => "get") do %>
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
@@ -35,6 +36,7 @@
     <ul class="topnav">
       <li><a href="/home">Home</a></li>
       <li><a href="/jobs">Jobs</a></li>
+      <li><a href="/categories">Categories</a></li>
       <li><%= form_tag(search_page_path, :method => "get") do %>
       <div class="input-group">
         <%= search_field_tag :search, params[:search], placeholder: "Search Jobs", class: "form-control" %>
