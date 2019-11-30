@@ -1,8 +1,8 @@
-
-<h1><%= @user[0].fname %> </h1>
-<%= link_to 'send a message', new_personal_message_path(receiver_id: @user[0].id) %>
+<% user.each do |u| %>
+<h1><%= u.fname %> </h1>
+<%= link_to 'send a message', new_personal_message_path(receiver_id: u.id) %>
 <p>
-    The following jobs exist for <%= @user[0].fname %>:
+    The following jobs exist for <%= u.fname %>:
     <table id="jobs">
       <tr>
         <th>Job Name</th>
@@ -14,6 +14,7 @@
       <% end %>
     </table>
   </p>
+<% end %>
   
 
 
