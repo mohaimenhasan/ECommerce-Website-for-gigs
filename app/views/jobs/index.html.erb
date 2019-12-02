@@ -7,8 +7,8 @@
       <div class="intro"><%= Subcategory.find(job.subcategory_id).name %></div>
     </div><!-- /.title-content -->
     <div class="card-info">
-      <%= job.description %> <br/>
       Find More: <%= link_to 'Details', job_detail_path(job) %>
+      <%= job.description %> <br/>
     </div><!-- /.card-info -->
     <div class="utility-info">
       <ul class="utility-list">

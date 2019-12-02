@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.where(:id => params[:id])
-    @jobs = Job.where(:user_id => @user[0].id)
+    if @user == []
+      @user = current_user
+    else
+      @user = @user[0]
+    end
+    @jobs = Job.where(:user_id => @user.id)
   end
 end
