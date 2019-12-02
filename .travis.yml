@@ -18,6 +18,10 @@ addons:
 
 before_install:
   - gem install bundler
+  - sudo apt-get update
+  - sudo apt-get install language-pack-es
+  - sudo /etc/init.d/postgresql stop
+  - sudo /etc/init.d/postgresql start 12.0
 
 before_script:
   - cp .rspec.travis .rspec
