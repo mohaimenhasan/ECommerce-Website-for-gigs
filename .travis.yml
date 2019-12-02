@@ -7,6 +7,9 @@ rvm:
   - jruby
   - truffleruby
 
+services:
+  - postgresql
+
 cache:
   bundler: true
 
