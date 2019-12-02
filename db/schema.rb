@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_053733) do
   create_table "orders", force: :cascade do |t|
     t.integer "job_id"
     t.integer "user_id"
-    t.integer "status", default: 0
+    t.integer "status"
     t.integer "customer_id"
     t.float "amount"
     t.string "stripe_id"
@@ -95,14 +95,14 @@ ActiveRecord::Schema.define(version: 2019_11_27_053733) do
     t.string "fname"
     t.string "lname"
     t.boolean "admin", default: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string "stripe_id"
     t.string "street"
     t.string "city"
     t.string "province"
     t.string "postalCode"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
