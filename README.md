@@ -1,6 +1,8 @@
 # ECE444-Home-Gig
 Semester project on Ruby-on-Rails for ECE444 - Software Engineering
 
+https://travis-ci.com/mohaimenhasan/ECE444-Home-Gig.svg?token=Jqs53LsBFVYpD28zocVZ&branch=master
+
 # Software Installation Versions:
 
 * Version for Ruby-on-Rails:
