@@ -1,12 +1,15 @@
+sudo: required
+
 language: ruby
 
 rvm:
   - 2.6.4
-  - jruby
-  - truffleruby
 
 services:
   - postgresql
+
+cache:
+  bundler: true
 
 addons:
   postgresql: "12.0"
@@ -16,7 +19,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install language-pack-es
   - sudo /etc/init.d/postgresql stop
-  - sudo /etc/init.d/postgresql start 12.0
+  - sudo /etc/init.d/postgresql start 9.3
 
 before_script:
   - cp .rspec.travis .rspec
@@ -24,7 +27,3 @@ before_script:
   - psql --command='CREATE DATABASE travis_ci_test;' --username=postgres
   - bundle exec rake db:schema:load RAILS_ENV=test
   - bundle exec rake db:create db:migrate RAILS_ENV=test
-
-script:
-  - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rspec
