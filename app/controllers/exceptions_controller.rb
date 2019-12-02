@@ -1,4 +1,4 @@
-class ExceptionsController < ApplicationController::Base
+class ExceptionsController < ApplicationController
 
        #Response
        respond_to :html, :xml, :json
@@ -37,7 +37,7 @@ class ExceptionsController < ApplicationController::Base
         end
     end
     helper_method :details
-  
+
        #######################
 
        private
