@@ -11,14 +11,13 @@ cache:
   bundler: true
 
 addons:
-  code_climate:
-    repo_token: 6d1107ed298902217e9ba186b3d717461f190e8c783e6561095d45d01864470a
   postgresql: "12.0"
 
 before_install:
   - gem install bundler
 
 before_script:
+  - rm /usr/local/var/postgres/postmaster.pid
   - cp .rspec.travis .rspec
   - cp config/database.yml.travis config/database.yml
   - psql --command='CREATE DATABASE travis_ci_test;' --username=postgres
