@@ -34,13 +34,12 @@ ActiveRecord::Schema.define(version: 2019_11_27_053733) do
   create_table "jobs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.bigint "subcategory_id"
+    t.string "subcategory_id"
     t.float "cost"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "stripe_id"
-    t.index ["subcategory_id"], name: "index_jobs_on_subcategory_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -58,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_053733) do
   create_table "orders", force: :cascade do |t|
     t.integer "job_id"
     t.integer "user_id"
-    t.integer "status"
+    t.integer "status", default: 0
     t.integer "customer_id"
     t.float "amount"
     t.string "stripe_id"
