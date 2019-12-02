@@ -92,6 +92,10 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    exception_handler (0.8.0.0)
+      bundler
+      rails (>= 4.2.0)
+      responders
     execjs (2.7.0)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
@@ -283,6 +287,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  exception_handler (~> 0.4)
   jbuilder (~> 2.7)
   jquery-rails
   pg
@@ -302,4 +307,4 @@ RUBY VERSION
    ruby 2.6.4p104
 
 BUNDLED WITH
-   2.0.2
+   2.1.0.pre.2

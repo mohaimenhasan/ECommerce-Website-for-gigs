@@ -33,4 +33,10 @@ Rails.application.routes.draw do
   get 'jobs/order/:id' => "jobs#new_order", as: :new_order
   get 'user/:id/orders' => "orders#index", as: :user_orders
   delete 'user/:id/orders/:id' => "orders#destroy", as: :delete_user_order
+  if Rails.env.production?
+    get '404', to: 'application#page_not_found'
+    get '422', to: 'application#server_error'
+    get '500', to:  'application#server_error'
+  end
+
 end

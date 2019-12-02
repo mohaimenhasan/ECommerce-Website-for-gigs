@@ -27,6 +27,9 @@ gem 'rails_admin'
 gem 'jquery-rails'
 # Stripe
 gem 'stripe-rails'
+
+gem "exception_handler", "~> 0.4"
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
