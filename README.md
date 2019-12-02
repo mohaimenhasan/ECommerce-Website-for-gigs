@@ -26,7 +26,7 @@ The following software with the specified versions, as mentioned below, need to 
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get a development env running. Please run all the commands from app directory:
 
 1. git clone the repository
 ```
@@ -70,23 +70,15 @@ rails db:seed
 rails s
 ```
 
-## Live Demo:
-
-To see the app up and running visit heroku at: https://secure-ocean-69468.herokuapp.com/
-
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To run the automated test run the following from the app directory:
+
+```
+rails test test/
+```
 
 ### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
 
 Explain what these tests test and why
 
