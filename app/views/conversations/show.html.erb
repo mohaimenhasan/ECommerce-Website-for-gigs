@@ -1,16 +1,18 @@
-<h3>Chatting with <%= @conversation.with(current_user).fname %></h3>
+<div style="margin-left:5vw; margin-right:5vw; margin-bottom:5vh;">
+  <h3 style="margin-bottom:30vh;">Chatting with <%= @conversation.with(current_user).fname %></h3>
 
-<div id="conversation-main" class="conversation_view">
-  <div id="conversation-body">
-    <%= render @conversation.personal_messages %>
+  <div id="conversation-main" class="conversation_view">
+    <div id="conversation-body">
+      <%= render @conversation.personal_messages %>
+    </div>
+
+    <%= form_for @personal_message do |f| %>
+      <%= hidden_field_tag 'conversation_id', @conversation.id %>
+      <p><%= f.label "New Message:" %></p>
+
+      <p><%= f.text_area :body %></p>
+
+      <p><%= f.submit %></p>
+    <% end %>
   </div>
-
-  <%= form_for @personal_message do |f| %>
-    <%= hidden_field_tag 'conversation_id', @conversation.id %>
-    <p><%= f.label "New Message:" %></p>
-
-    <p><%= f.text_area :body %></p>
-
-    <p><%= f.submit %></p>
-  <% end %>
 </div>

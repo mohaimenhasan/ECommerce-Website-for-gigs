@@ -1,11 +1,25 @@
-<% @categories.each do |c| %>
-  <h3><%= c.name %></h3>
-<% end %>
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div style="margin-left:5vw; margin-right:5vw; margin-bottom:5vh;">
+          <h2 style="padding-top:6vh;">
+            <% @categories.each do |c| %>
+              <%= c.name %>
+            <% end %>
+          </h2>
+          <div class="row" style="padding-bottom:20vh; display:inline;">
+            <% @subcategories.each do |s| %>
+              <div class="card border-info">
+                <div class="card body"><h3><%= link_to s.name, jobs_path(cid: s.id) %></h3></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </body>
+</html>
 
-<div class="cat_subcat">
-<% @subcategories.each do |s| %>
-
-  <h4><%= link_to s.name, jobs_path(cid: s.id) %></h4>
-
-<% end %>
-</div>
