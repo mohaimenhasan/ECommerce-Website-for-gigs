@@ -1,14 +1,14 @@
-<div style="margin-bottom:45vh;">
+<div style="margin-bottom:40vh;margin-top:5vh;">
   <% if user_signed_in? %>
-    <h4>Welcome <%= @user.fname %> !</h4>
+    <h4 style="margin-left:5vh;">Welcome <%= @user.fname %> !</h4>
     <% if current_user.admin == true %>
-      <p>
+      <p style="margin-left:5vh;">
         Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
       </p>
     <% end %>
-    <p>
+    <p style="margin-left:5vh;">
       Here are all your previous orders:
-      <table id="jobs">
+      <table id="jobs" style="margin-left:2%; margin-right:2%;width:95%;">
         <tr>
           <th>Order Number</th>
           <th>Gig Name</th>

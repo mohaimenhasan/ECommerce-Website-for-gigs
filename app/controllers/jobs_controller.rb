@@ -87,7 +87,7 @@ class JobsController < ApplicationController
     if @job.save
       create_job(@job.id)
     else
-      render :new
+      render 'new'
     end
   end
 

@@ -2,8 +2,10 @@
   <h3><%= c.name %></h3>
 <% end %>
 
+<div class="cat_subcat">
 <% @subcategories.each do |s| %>
 
-  <li><%= link_to s.name, jobs_path(cid: s.id) %></li>
+  <h4><%= link_to s.name, jobs_path(cid: s.id) %></h4>
 
 <% end %>
+</div>
