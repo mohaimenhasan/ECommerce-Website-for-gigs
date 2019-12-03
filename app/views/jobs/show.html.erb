@@ -327,15 +327,17 @@ button:hover, a:hover {
         Last Name: <%= User.find(@job.user_id).lname %> <br/>
         Email: <%= User.find(@job.user_id).email %> <br/>
       </p>
-      <p>
-        <%= link_to 'send a message', new_personal_message_path(receiver_id: @job.user_id), class: "btn btn-primary" %>
-      </p>
+      <% if @job.user_id != current_user.id %>
+        <p>
+          <%= link_to 'send a message', new_personal_message_path(receiver_id: @job.user_id), class: "btn btn-primary" %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>
 
-</b></span> <br/>
-</b></span> <br/>
+<b> <br/>
+<b> <br/>
 
 </body>
 </html>
