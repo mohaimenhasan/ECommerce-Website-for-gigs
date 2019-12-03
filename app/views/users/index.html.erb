@@ -14,7 +14,7 @@
         <th>Subcategory</th>
         <th>Cost</th>
         <th>Description</th>
-        <th>Details</th>
+        <th>Action</th>
       </tr>
 
       <% @jobs.each do |job| %>
@@ -22,7 +22,7 @@
           <td><%= job.name %></td>
           <td><%= Category.find(Subcategory.find(job.subcategory_id).category_id).name %></td>
           <td><%= Subcategory.find(job.subcategory_id).name %></td>
-          <td><%= job.cost %></td>
+          <td>$<%= job.cost %></td>
           <td><%= job.description %></td>
           <td><%= link_to 'Details', user_job_path(current_user, job) %> | <%= link_to 'Edit', edit_user_job_path(current_user, job) %> | <%= link_to 'Delete', user_job_path(current_user, job),
               method: :delete,
