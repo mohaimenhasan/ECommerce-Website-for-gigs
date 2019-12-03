@@ -1,23 +1,25 @@
-<h1><%= @user.fname %> </h1>
-<% if @user != current_user %>
-  <%= link_to 'send a message', new_personal_message_path(receiver_id: @user.id) %>
-<% end %>
-<p>
-  The following jobs exist for <%= @user.fname %>:
-  <table id="jobs">
-    <tr>
-      <th>Job Name</th>
-    </tr>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.name %></td>
-      </tr>
-    <% end %>
-  </table>
-  <% if @user == current_user %>
-    <div class="wallet">
-      <br/>
-      <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
-    </div>
+<div style="margin-bottom:40vh;"> 
+  <h1><%= @user.fname %> </h1>
+  <% if @user != current_user %>
+    <%= link_to 'send a message', new_personal_message_path(receiver_id: @user.id) %>
   <% end %>
-</p>
+  <p>
+    The following jobs exist for <%= @user.fname %>:
+    <table id="jobs">
+      <tr>
+        <th>Job Name</th>
+      </tr>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.name %></td>
+        </tr>
+      <% end %>
+    </table>
+    <% if @user == current_user %>
+      <div class="wallet">
+        <br/>
+        <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
+      </div>
+    <% end %>
+  </p>
+</div>

@@ -1,44 +1,46 @@
-<% if user_signed_in? %>
-  <h4>Welcome <%= @user.fname %> !</h4>
-  <% if current_user.admin == true %>
+<div style="margin-bottom:45vh;">
+  <% if user_signed_in? %>
+    <h4>Welcome <%= @user.fname %> !</h4>
+    <% if current_user.admin == true %>
+      <p>
+        Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
+      </p>
+    <% end %>
     <p>
-      Our records indicate that you are an admin. Access your dashboard here: <%= link_to('Admin Dashboard', rails_admin_path) %>
-    </p>
-  <% end %>
-  <p>
-    Here are all your previous orders:
-    <table id="jobs">
-      <tr>
-        <th>Order Number</th>
-        <th>Gig Name</th>
-        <th>Amount Paid</th>
-        <th>Status</th>
-        <th>Seller Name</th>
-        <th>Creation Date</th>
-        <th>Action</th>
-      </tr>
-
-      <% @orders.each do |order| %>
+      Here are all your previous orders:
+      <table id="jobs">
         <tr>
-          <td><%= order.id %></td>
-          <td><%= link_to Job.find(order.job_id).name, job_detail_path(order.job_id)%></td>
-          <td>$<%= order.amount%></td>
-          <td><%= order.status%></td>
-          <td><%= link_to User.find(order.user_id).fname, user_path(id: order.user_id)%></td>
-          <td><%= order.created_at%></td>
-          <td><%= link_to 'Delete Order', delete_user_order_path(current_user, order),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+          <th>Order Number</th>
+          <th>Gig Name</th>
+          <th>Amount Paid</th>
+          <th>Status</th>
+          <th>Seller Name</th>
+          <th>Creation Date</th>
+          <th>Action</th>
         </tr>
-      <% end %>
-    </table>
-    <div class="wallet">
-      <br/>
-      <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
-    </div>
-  </p>
-<% else %>
-  <li>
-    <%= link_to('Login', new_user_session_path) %>
-  </li>
-<% end %>
+
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= link_to Job.find(order.job_id).name, job_detail_path(order.job_id)%></td>
+            <td>$<%= order.amount%></td>
+            <td><%= order.status%></td>
+            <td><%= link_to User.find(order.user_id).fname, user_path(id: order.user_id)%></td>
+            <td><%= order.created_at%></td>
+            <td><%= link_to 'Delete Order', delete_user_order_path(current_user, order),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="wallet">
+        <br/>
+        <h5> Add new job here: <%= link_to('Create a new job', new_user_job_path(@user)) %> </h5>
+      </div>
+    </p>
+  <% else %>
+    <li>
+      <%= link_to('Login', new_user_session_path) %>
+    </li>
+  <% end %>
+</div>

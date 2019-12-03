@@ -244,10 +244,6 @@ hr{
    overflow: hidden;
  }
 
- .newjob{
-   align-items: center;
- }
-
  .newcard {
     align-items: center;
   }
@@ -321,9 +317,11 @@ hr{
 }
 
 .sign-up {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(173,216,230,0.6);
+  border-radius: 10%;
   margin-left: 25%;
   margin-top: 5%;
+  margin-bottom:5%;
   width: 50%;
   text-align: center;
   padding-top: 5%;
@@ -331,8 +329,9 @@ hr{
 }
 
 .log-in {
-  background-color: rgba(255, 255, 255, 0.5);
-  margin-left: 30%;
+  background-color: rgba(173,216,230,0.6);
+  border-radius: 10%;
+  margin-left: 25%;
   margin-top: 10%;
   margin-bottom:10%;
   width: 50%;
@@ -357,12 +356,22 @@ hr{
 
 
 .newjob{
-  margin-left: 40%;
-  margin-right: 40%;
+  // margin-left: 40%;
+  // margin-right: 40%;
+  background-color: rgba(173,216,230,0.6);
+  border-radius: 10%;
+  margin-left: 25%;
+  margin-top: 5%;
+  margin-bottom:5%;
+  width: 50%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  align-items: center;
 }
 
 .newjob input, select{
-  width: 100%;
+  width: 90%;
   display: inline-block;
   border: 1px solid #ccc;
   margin: 8px 0;
@@ -371,7 +380,7 @@ hr{
 }
 
 .newjob input[type=submit] {
-  width: 100%;
+  width: 90%;
   background-color: #4CAF50;
   color: white;
   margin: 8px 0;

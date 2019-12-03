@@ -1,5 +1,20 @@
-<h3>Categories</h3>
-
-<% @categories.each do |c| %>
-  <h3><%= link_to c.name, subcategories_path(c) %></h3>
-<% end %>
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div style="margin-left:5vw; margin-right:5vw; margin-bottom:5vh;">
+          <h2 style="padding-top:6vh;">Categories</h2>
+          <div class="row" style="padding-bottom:20vh; display:inline;">
+            <% @categories.each do |c| %>
+              <div class="card border-info">
+                <div class="card body"><h3><%= link_to c.name, subcategories_path(c) %></h3></div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </body>
+</html>
