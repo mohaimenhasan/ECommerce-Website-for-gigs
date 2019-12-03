@@ -22,7 +22,7 @@
     </div>
     <div class="field">
       <b><%= f.label :subcategory_id %><br /> </b>
-      <%= f.select :subcategory_id, Subcategory.pluck(:name, :category_id)%>
+      <%= f.select :subcategory_id, Subcategory.pluck(:name, :id)%>
     </div>
     <br/>
     <div class="field">
