@@ -1,17 +1,17 @@
-<div class="personal_message">
-<h3>New message to <%= @receiver.fname %></h3>
+<div style="margin-left:5vw; margin-right:5vw; margin-bottom:50vh;">
+  <div class="personal_message">
+  <h3 style="margin-bottom:5vh;">New message to <%= @receiver.fname %></h3>
 
-    <%= form_for @personal_message do |f| %>
-      <%= hidden_field_tag 'receiver_id', @receiver.id %>
-    
-      <p><%= f.label "Message:" %></p>
-    
-      <p><%= f.text_area :body %></p>
-    
-      <p><%= f.submit %></p>
-    <% end %>
-  </form>
+      <%= form_for @personal_message do |f| %>
+        <%= hidden_field_tag 'receiver_id', @receiver.id %>
+      
+        <p><%= f.label "Message:" %></p>
+      
+        <p><%= f.text_area :body %></p>
+      
+        <p><%= f.submit %></p>
+      <% end %>
+    </form>
+  </div>
 </div>
 
-</body>
-</html>
