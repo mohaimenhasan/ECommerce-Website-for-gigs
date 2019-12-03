@@ -1,6 +1,20 @@
 <div class="newjob">
   <br/>
   <h2>Create a job</h2>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@job.errors.count, "error") %> prohibited
+        this job from being saved:
+      </h2>
+      <ul>
+        <% @job.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for :job, :url => user_jobs_path(@user, @job) do |f| %>
     <div class="field">
       <b><%= f.label :name %><br /> </b>
