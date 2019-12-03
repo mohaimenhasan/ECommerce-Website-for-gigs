@@ -1,5 +1,5 @@
 var handler = StripeCheckout.configure({
-    key: '<%= Rails.application.credentials.stripe[Rails.env.to_sym][:publishable_key] %>',
+    key: '<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>',
     //get a publishable key that we put in editor depending on environment: production or development
     locale: 'auto',
     //handle translation
