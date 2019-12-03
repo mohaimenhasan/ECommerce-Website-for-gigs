@@ -82,8 +82,12 @@ rails test test/
 
 Explain what these tests test and why
 
+* Test for users
+
+Users can not be created without a valid email
+
 ```
-Give an example
+rails test test/models/user_test
 ```
 
 ## Deployment
