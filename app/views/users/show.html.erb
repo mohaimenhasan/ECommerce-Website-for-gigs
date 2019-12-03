@@ -1,4 +1,4 @@
-<div style="margin-bottom:40vh;"> 
+<div style="margin-bottom:55vh;"> 
   <h1><%= @user.fname %> </h1>
   <% if @user != current_user %>
     <%= link_to 'send a message', new_personal_message_path(receiver_id: @user.id) %>
