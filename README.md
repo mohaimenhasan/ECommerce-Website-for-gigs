@@ -104,7 +104,7 @@ Live Demo available at: https://secure-ocean-69468.herokuapp.com/
 * **Mohaimen Khan** 
 * **Jennifer Hu** 
 * **Hongyi Yang** 
-* **Qadeer Muhammad** 
+* **Muhammad Waseem Qadeer** 
 * **Zihan Zhao** 
 
 See also the list of [contributors](https://github.com/mohaimenhasan/ECE444-Home-Gig/contributors) who participated in this project.
@@ -113,7 +113,7 @@ See also the list of [contributors](https://github.com/mohaimenhasan/ECE444-Home
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Acknowledgements
 
 * Kijiji
 * Fiverr
